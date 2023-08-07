@@ -1,0 +1,596 @@
+{
+	"info": {
+		"_postman_id": "25b13187-1f28-4de2-8c11-7437a996f2c5",
+		"name": "dev.cakeiteasy.se negative",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21091393"
+	},
+	"item": [
+		{
+			"name": "negative cases",
+			"item": [
+				{
+					"name": "register user (null data)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"email\": \"\",\n    \"password\": \"\",\n    \"locale\": \"\",\n    \"subscribed_on_news\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user (\"first name\" is null)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"Novikova\" ,\n    \"email\":  \"novikova@gmail.com\",\n    \"password\": \"masha123\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user (\"last name\" is null)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Masha\",\n    \"last_name\": \"\" ,\n    \"email\":  \"novikova@gmail.com\",\n    \"password\": \"masha123\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user (\"email\" is null)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Masha\",\n    \"last_name\": \"Novikova\" ,\n    \"email\":  \"\",\n    \"password\": \"masha123\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user (\"password\" is null)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Masha\",\n    \"last_name\": \"Novikova\" ,\n    \"email\":  \"novikova@gmail.com\",\n    \"password\": \"\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user (checkbox is not applied)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Masha\",\n    \"last_name\": \"Novikova\" ,\n    \"email\":  \"novikova@gmail.com\",\n    \"password\": \"masha123\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user (''locale'' is null)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Masha\",\n    \"last_name\": \"Novikova\" ,\n    \"email\":  \"novikova@gmail.com\",\n    \"password\": \"masha123\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user (''first name'' filled by symbols)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"@@##$\",\n    \"last_name\": \"Novikova\" ,\n    \"email\":  \"novikova3@gmail.com\",\n    \"password\": \"masha123\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user (''last name'' filled by symbols)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"first_name\": \"Masha\",\n    \"last_name\": \"##@@%\" ,\n    \"email\":  \"novikova2@gmail.com\",\n    \"password\": \"masha123\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": true\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user (''email'' filled and skipped @)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"first_name\": \"Masha\",\n    \"last_name\": \"Novikova\" ,\n    \"email\":  \"novikova3gmail.com\",\n    \"password\": \"masha123\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": true\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user (''password'' filled by symbols)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"first_name\": \"Masha\",\n    \"last_name\": \"Novikova\" ,\n    \"email\":  \"novikova12345@gmail.com\",\n    \"password\": \"##@@%\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": true\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user by GET method",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Masha\",\n    \"last_name\": \"Novikova\" ,\n    \"email\":  \"novikova5@gmail.com\",\n    \"password\": \"masha12345\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://api.dev.cakeiteasy.no/api"
+		}
+	]
+}

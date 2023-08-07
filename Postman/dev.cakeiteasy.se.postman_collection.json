@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "654c9955-586d-42ea-b1ad-12d291e9642f",
+		"name": "dev.cakeiteasy.se",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21091393"
+	},
+	"item": [
+		{
+			"name": "positive cases",
+			"item": [
+				{
+					"name": "register user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"email\", jsonData.email);",
+									"",
+									"pm.environment.set(\"name\", jsonData.first_name);",
+									"pm.environment.set(\"lastname\", jsonData.last_name);",
+									"pm.environment.set(\"password\", jsonData.password);",
+									"",
+									"pm.environment.set(\"userId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"ivan\",\n    \"last_name\": \"ivanov\",\n    \"email\": \"ivanov123@gmail.com\",\n    \"password\": \"ivanov123\",\n    \"locale\": \"sv_SE\",\n    \"subscribed_on_news\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"cartId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ZgO2AdIzUogtgviClEZ4gp5vBBzXOjVRd6LKOkGNkdUMCvEE94z5BJWjf6p7mH7O",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/store/cart/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"cart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add product to the cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ZgO2AdIzUogtgviClEZ4gp5vBBzXOjVRd6LKOkGNkdUMCvEE94z5BJWjf6p7mH7O",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"order_line_id\": null,\n        \"client_id\": \"{{userId}}\",\n        \"product\": 3051,\n        \"quantity\": 1,\n        \"order_lines\": []\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/store/cart/order-lines/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"cart",
+								"order-lines",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get cart again",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ZgO2AdIzUogtgviClEZ4gp5vBBzXOjVRd6LKOkGNkdUMCvEE94z5BJWjf6p7mH7O",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/store/cart/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"cart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user log out",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ZgO2AdIzUogtgviClEZ4gp5vBBzXOjVRd6LKOkGNkdUMCvEE94z5BJWjf6p7mH7O",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/logout/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user log in",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "jsw5pFcUDyjp4CwvIP9SfRnIEjrmWynCRumRFnCzjmZyNuasBuu8jX38Jm11XJnt",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"ivanov123\",\n    \"email\": \"{{email}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get cart to check order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "jsw5pFcUDyjp4CwvIP9SfRnIEjrmWynCRumRFnCzjmZyNuasBuu8jX38Jm11XJnt",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/store/cart/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"cart",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://api.dev.cakeiteasy.no/api"
+		}
+	]
+}
